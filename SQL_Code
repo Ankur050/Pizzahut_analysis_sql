@@ -78,3 +78,20 @@ ORDER BY number_of_orders DESC
 LIMIT 5;
 
 
+6)
+-- Join the necessary tables to find the total quantity of each pizza category ordered.
+
+SELECT 
+    p.category, COUNT(p.category) AS number_of_orders
+FROM
+    pizzas AS ps
+        JOIN
+    pizza_types AS p ON p.pizza_type_id = ps.pizza_type_id
+        JOIN
+    order_details AS o ON o.pizza_id = ps.pizza_id
+GROUP BY category;
+
+
+7) 
+
+
