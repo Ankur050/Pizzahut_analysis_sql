@@ -62,3 +62,19 @@ FROM
 GROUP BY pizzas.size
 ORDER BY count_order DESC;
 
+
+5)
+
+-- list the top 5 most ordered pizza types along with their quantities
+
+SELECT 
+    p.pizza_type_id, COUNT(p.pizza_type_id) AS number_of_orders
+FROM
+    pizzas AS p
+        INNER JOIN
+    order_details AS o ON o.pizza_id = p.pizza_id
+GROUP BY p.pizza_type_id
+ORDER BY number_of_orders DESC
+LIMIT 5;
+
+
