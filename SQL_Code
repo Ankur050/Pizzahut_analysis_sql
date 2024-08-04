@@ -94,4 +94,12 @@ GROUP BY category;
 
 7) 
 
+# Determine the distribution of orders by hour of the day.
+
+SELECT 
+    HOUR(order_time) AS hour, COUNT(order_id) orders_count
+FROM
+    orders
+GROUP BY HOUR(order_time)
+ORDER BY orders_count DESC;
 
